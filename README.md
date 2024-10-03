@@ -65,14 +65,5 @@ PineCone:
 https://codelabs-preview.appspot.com/?file_id=1QEQsZ2bjpKI9WmCu933177kUhZuZoLK7z7VWFwk-B5U#0
 
 ## Demo - 
-https://www.youtube.com/watch?v=NIfSHmdudNo
 
-  ## Contribution
-WE ATTEST THAT WE HAVEN'T USED ANY OTHER STUDENTS' WORK IN OUR ASSIGNMENT AND ABIDE BY THE POLICIES LISTED IN THE STUDENT HANDBOOK
-
-| Contributor | Contributions            | Percentage |
-|-------------|--------------------------|------------|
-| Dev Mithunisvar Premraj       | Part 1, Part 4 and Streamlit|33.33%|
-| Aneesh Koka        | Part 3 and Part 4 | 33.33% |
-| Rishabh Shah         | Part 2 and Streamlit| 33.33% |
 
