@@ -53,18 +53,17 @@ def process_qasetb_file(file_path):
 
     return dataframe_setb
 
-api_key = os.environ.get("PINECONE_API_KEY")
+pine_api_key = os.environ.get("PINECONE_API_KEY")
 print("hi",api_key)
-pc = Pinecone(api_key='6421fb24-dfb4-4ed0-a3be-578eb0fedbc1')
+pc = Pinecone(api_key = pine_api_key)
 file_path = "Extracted_details.csv"
 df = pd.read_csv(file_path)
 # & C:/Users/devmi/.virtualenvs/ice_breaker-4_Y-Iwbs/Scripts/Activate.ps
 # Initialize the environment variables
 load_dotenv()
 openai_api_key = os.getenv('OPENAI_API_KEY')
-openai.api_key = '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'
 # Constants for S3
-S3_BUCKET_NAME = "bigdatacasestudy5"
+S3_BUCKET_NAME = os.getenv('S3_BUCKET_NAME')
 
 # Initialize session state for storing filenames and page navigation
 if 'listfilename' not in st.session_state:
@@ -76,12 +75,12 @@ if 'current_page' not in st.session_state:
 
 # Create a session using environment variables or configured AWS credentials
 session = boto3.Session(
-     aws_access_key_id='AKIA4MTWHTESY6QTXXEJ',
-    aws_secret_access_key='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'
+     aws_access_key_id= os.getenv('AWS_ACCESS_KEY_ID'),
+    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
 )
 s3 = session.client('s3')
-os.environ['AWS_ACCESS_KEY_ID'] = 'AKIA4MTWHTESY6QTXXEJ'
-os.environ['AWS_SECRET_ACCESS_KEY'] = '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'
+os.environ['AWS_ACCESS_KEY_ID'] = os.getenv('AWS_ACCESS_KEY_ID')
+os.environ['AWS_SECRET_ACCESS_KEY'] =  os.getenv('AWS_SECRET_ACCESS_KEY')
 os.environ['AWS_DEFAULT_REGION'] = 'us-east-2'
 
 
@@ -388,13 +387,12 @@ def QA_page():
 
         def store_questions_in_namespace(df):
             # Specify your Pinecone API key
-            api_key = '6421fb24-dfb4-4ed0-a3be-578eb0fedbc1'
 
             # Create a Pinecone index with the specified name
             index_name = 'test2'
 
             # Create an instance of Pinecone index
-            pc = Pinecone(api_key=api_key)
+            pc = Pinecone(api_key=pineapi_key)
             index = pc.Index(name=index_name)
 
             # Specify the namespace
@@ -543,7 +541,6 @@ def questionsetB_page():
         st.session_state.markdown_content = ""
     # Add a process button
     if st.button('Generate'):  # This button is named 'Generate'
-        print("ddddddddddddddddddddddddddddddddddddddd",dataframe_setb['Name of the Topic'].values)
         # Check if the entered topic name matches any value in 'Name of the Topic' column
         if Enter_Topic_Name in dataframe_setb['Name of the Topic'].values:
             summary_output = dataframe_setb.loc[dataframe_setb['Name of the Topic'] == Enter_Topic_Name, 'Summary'].values[0]
@@ -590,7 +587,6 @@ def questionsetB_page():
             # Parsing the questions and options
             questions_with_options = []
             current_question = ""
-            print("ssssssssssssssssssssssssssss",lines[0])
             for line in lines:
                 if is_question_line(line):  # Check if it's a new question
                     if current_question:  # If there's a collected question, append it
