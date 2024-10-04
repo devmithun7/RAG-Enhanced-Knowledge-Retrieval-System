@@ -1,6 +1,6 @@
 # RAG-Enhanced-Knowledge-Retrieval-System
 Architecture Diagram
-![Architecture Diagram](https://github.com/BigDataIA-Spring2024-Sec1-Team1/Assignment5/blob/main/part2architecturediagram.jpg)
+![Architecture Diagram](https://github.com/devmithun7/RAG-Enhanced-Knowledge-Retrieval-System/blob/main/Architecture%20Diagram/part1architecture_diagram.jpg)
 
 ## Technologies Used
 
