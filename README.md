@@ -32,7 +32,6 @@ In this assignment, we will leverage Pinecone and OpenAI api’s for:
 
 3. You will then invoke the second API service to interface with Snowflake and bring back results into Streamlit
 
-## Question 1
 
 ### Prerequisites
 
